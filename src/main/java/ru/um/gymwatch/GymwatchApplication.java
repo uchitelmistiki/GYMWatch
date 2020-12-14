@@ -16,6 +16,5 @@ public class GymwatchApplication {
 
 	public static void main(String[] args){
 		SpringApplication.run(GymwatchApplication.class, args);
-		DayOfWeekGetter.getDaysOfWeek().stream().forEach(System.out::println);
 	}
 }
