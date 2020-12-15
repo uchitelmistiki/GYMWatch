@@ -33,9 +33,4 @@ public class Course {
     @Getter
     @Setter
     private String duration;
-
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "course")
-    private Set<Workout> workouts;
 }

@@ -38,9 +38,4 @@ public class Exercise {
     @NotNull
     private String name;
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "exercise")
-    private Set<Workout> workouts;
-
 }

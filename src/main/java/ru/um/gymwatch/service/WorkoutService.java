@@ -2,6 +2,7 @@ package ru.um.gymwatch.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.um.gymwatch.entity.BodyPart;
 import ru.um.gymwatch.entity.Course;
 import ru.um.gymwatch.entity.Workout;
 import ru.um.gymwatch.repos.WorkoutRepository;
@@ -35,8 +36,7 @@ public class WorkoutService {
         workoutRepository.deleteById(id);
     }
 
-    public Workout update(Workout currentWorkout){
-        Workout workoutToUpdate = workoutRepository.getOne(currentWorkout.getId());
+    public Workout update(Workout currentWorkout, Workout workoutToUpdate){
         workoutToUpdate.setNumOfApproach(currentWorkout.getNumOfApproach());
         workoutToUpdate.setNumOfRepeats(currentWorkout.getNumOfRepeats());
         workoutToUpdate.setDate(currentWorkout.getDate());

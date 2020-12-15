@@ -35,8 +35,7 @@ public class CourseService {
         courseRepository.deleteById(id);
     }
 
-    public Course update(Course currentCourse){
-        Course courseToUpdate = courseRepository.getOne(currentCourse.getId());
+    public Course update(Course currentCourse, Course courseToUpdate){
         courseToUpdate.setName(currentCourse.getName());
         courseToUpdate.setAuthor(currentCourse.getAuthor());
         courseToUpdate.setDuration(currentCourse.getDuration());

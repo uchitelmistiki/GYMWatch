@@ -1,5 +1,6 @@
 package ru.um.gymwatch.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,13 +22,13 @@ public class Workout {
     private Integer id;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_course")
     @Getter
     @Setter
     private Course course;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_exercise")
     @Getter
     @Setter
@@ -49,6 +50,7 @@ public class Workout {
 
     @Getter
     @Setter
+    @JsonFormat(pattern="dd.MM.yyyy")
     private Date date;
 
 }
