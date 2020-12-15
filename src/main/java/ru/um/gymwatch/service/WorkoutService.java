@@ -31,8 +31,8 @@ public class WorkoutService {
         return workoutRepository.findAll();
     }
 
-    public void delete(Workout workout){
-        workoutRepository.delete(workout);
+    public void delete(int id){
+        workoutRepository.deleteById(id);
     }
 
     public Workout update(Workout currentWorkout){

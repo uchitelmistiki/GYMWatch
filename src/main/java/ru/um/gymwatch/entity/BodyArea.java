@@ -27,10 +27,4 @@ public class BodyArea {
     @NotNull
     private String name;
 
-    @Getter
-    @Setter
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
-            mappedBy = "bodyArea")
-    private Exercise exercise;
 }

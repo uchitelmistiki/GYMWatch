@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-@Table(name = "course")
+@Table(name = "courses")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {

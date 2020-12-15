@@ -5,8 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.um.gymwatch.entity.BodyPart;
 import ru.um.gymwatch.service.BodyPartService;
-
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -28,9 +26,9 @@ public class BodyPartController {
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable Integer id){
         Optional<BodyPart> bodyPart = bodyPartService.findById(id);
-        return Objects.isNull(bodyPart)
-                ?ResponseEntity.notFound().build()
-                :ResponseEntity.ok(bodyPart);
+        if (!bodyPart.isPresent())
+            return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(bodyPart.get());
     }
 
     @GetMapping
@@ -38,16 +36,16 @@ public class BodyPartController {
         return ResponseEntity.ok(bodyPartService.findAll());
     }
 
-    /*
-
-    public void delete(BodyPart bodyPart){
-        bodyPartRepository.delete(bodyPart);
+    @PutMapping("/{id}")
+    public ResponseEntity update(@RequestBody BodyPart bodyPart, @PathVariable Integer id){
+        Optional<BodyPart> bodyPartOptional = bodyPartService.findById(id);
+        if (!bodyPartOptional.isPresent())
+            return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(bodyPartService.update(bodyPart, bodyPartOptional.get()));
     }
 
-    public BodyPart update(BodyPart currentBodyPart){
-        BodyPart bodyPartToUpdate = bodyPartRepository.getOne(currentBodyPart.getId());
-        bodyPartToUpdate.setName(currentBodyPart.getName());
-        return bodyPartRepository.save(bodyPartToUpdate);
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id) {
+        bodyPartService.delete(id);
     }
-     */
 }

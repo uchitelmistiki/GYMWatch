@@ -25,11 +25,4 @@ public class BodyPart {
     @NotNull
     private String name;
 
-    @Getter
-    @Setter
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
-            mappedBy = "bodyPart")
-    private Exercise exercise;
-
 }

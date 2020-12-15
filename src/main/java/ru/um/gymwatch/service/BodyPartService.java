@@ -31,12 +31,11 @@ public class BodyPartService {
         return bodyPartRepository.findAll();
     }
 
-    public void delete(BodyPart bodyPart){
-        bodyPartRepository.delete(bodyPart);
+    public void delete(int id){
+        bodyPartRepository.deleteById(id);
     }
 
-    public BodyPart update(BodyPart currentBodyPart){
-        BodyPart bodyPartToUpdate = bodyPartRepository.getOne(currentBodyPart.getId());
+    public BodyPart update(BodyPart currentBodyPart, BodyPart bodyPartToUpdate){
         bodyPartToUpdate.setName(currentBodyPart.getName());
         return bodyPartRepository.save(bodyPartToUpdate);
     }

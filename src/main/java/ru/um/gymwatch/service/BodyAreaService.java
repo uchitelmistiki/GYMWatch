@@ -3,6 +3,7 @@ package ru.um.gymwatch.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.um.gymwatch.entity.BodyArea;
+import ru.um.gymwatch.entity.BodyPart;
 import ru.um.gymwatch.repos.BodyAreaRepository;
 
 import java.util.List;
@@ -29,12 +30,11 @@ public class BodyAreaService {
         return bodyAreaRepository.findAll();
     }
 
-    public void delete(BodyArea bodyArea){
-        bodyAreaRepository.delete(bodyArea);
+    public void delete(int id){
+        bodyAreaRepository.deleteById(id);
     }
 
-    public BodyArea update(BodyArea currentBodyArea){
-        BodyArea bodyAreaToUpdate = bodyAreaRepository.getOne(currentBodyArea.getId());
+    public BodyArea update(BodyArea currentBodyArea, BodyArea bodyAreaToUpdate){
         bodyAreaToUpdate.setName(currentBodyArea.getName());
         return bodyAreaRepository.save(bodyAreaToUpdate);
     }

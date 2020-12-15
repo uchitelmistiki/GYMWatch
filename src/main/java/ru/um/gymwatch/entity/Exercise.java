@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-@Table(name = "exercise")
+@Table(name = "exercises")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Exercise {
@@ -21,13 +21,13 @@ public class Exercise {
     @Setter
     private Integer id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_part")
     @Getter
     @Setter
     private BodyPart bodyPart;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_area")
     @Getter
     @Setter

@@ -2,6 +2,7 @@ package ru.um.gymwatch.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.um.gymwatch.entity.BodyPart;
 import ru.um.gymwatch.entity.Course;
 import ru.um.gymwatch.entity.Exercise;
 import ru.um.gymwatch.repos.ExerciseRepository;
@@ -31,12 +32,11 @@ public class ExerciseService {
         return exerciseRepository.findAll();
     }
 
-    public void delete(Exercise exercise){
-        exerciseRepository.delete(exercise);
+    public void delete(int id){
+        exerciseRepository.deleteById(id);
     }
 
-    public Exercise update(Exercise currentExercise){
-        Exercise exerciseToUpdate = exerciseRepository.getOne(currentExercise.getId());
+    public Exercise update(Exercise currentExercise, Exercise exerciseToUpdate){
         exerciseToUpdate.setName(currentExercise.getName());
         return exerciseRepository.save(exerciseToUpdate);
     }

@@ -31,8 +31,8 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public void delete(Course course){
-        courseRepository.delete(course);
+    public void delete(int id){
+        courseRepository.deleteById(id);
     }
 
     public Course update(Course currentCourse){
