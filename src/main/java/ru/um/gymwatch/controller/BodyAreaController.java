@@ -8,6 +8,7 @@ import ru.um.gymwatch.service.BodyAreaService;
 
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/bodyareas")
 public class BodyAreaController {

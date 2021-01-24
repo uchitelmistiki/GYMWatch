@@ -12,6 +12,7 @@ import ru.um.gymwatch.service.WorkoutService;
 
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/workouts")
 public class WorkoutController {

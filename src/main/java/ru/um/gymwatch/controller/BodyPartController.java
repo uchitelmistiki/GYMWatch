@@ -7,6 +7,7 @@ import ru.um.gymwatch.entity.BodyPart;
 import ru.um.gymwatch.service.BodyPartService;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/bodyparts")
 public class BodyPartController {

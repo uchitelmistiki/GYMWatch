@@ -13,6 +13,7 @@ import ru.um.gymwatch.service.ExerciseService;
 import javax.validation.Valid;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/exercises")
 public class ExerciseController {

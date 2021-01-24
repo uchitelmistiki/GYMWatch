@@ -9,6 +9,7 @@ import ru.um.gymwatch.service.CourseService;
 
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/courses")
 public class CourseController {
