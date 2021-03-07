@@ -1,13 +1,11 @@
 package ru.um.gymwatch.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Data
 @Entity
 @Table(name = "body_part")
 @NoArgsConstructor
@@ -16,12 +14,8 @@ public class BodyPart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter
-    @Setter
     private Integer id;
 
-    @Getter
-    @Setter
     @NotNull
     private String name;
 
